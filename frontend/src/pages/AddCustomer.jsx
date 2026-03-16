@@ -10,14 +10,7 @@ const AddCustomer = () => {
     const [formData, setFormData] = useState({
         customer: { name: '', phone: '', age: '', email: '' },
         measurements: {
-            pants: { 
-                pantMeasurement1: '', pantMeasurement2: '', pantMeasurement3: '', 
-                pantMeasurement4: '', pantMeasurement5: '', 
-                pantMeasurement6a: '', pantMeasurement6b: '',
-                pantMeasurement7: '', pantMeasurement8: '', 
-                pantMeasurement9a: '', pantMeasurement9b: '',
-                comments: '', images: [] 
-            },
+            pants: { m1: '', m2: '', m3: '', m4: '', m5: '', m6: '', m7: '', m8: '', m9: '', m10: '', m11: '', comments: '', images: [] },
             shirts: { m1: '', m2: '', m3: '', m4: '', m5: '', m6: '', m7: '', m8: '', m9: '', m10: '', m11: '', m12: '', m13: '', m14: '', m15: '', comments: '', images: [] },
             options: { sleeve: 'Full Sleeve', fit: 'Arrow', pockets: [] }
         },
@@ -243,8 +236,8 @@ MariMuthu
                                     <label>{i}</label>
                                     <input 
                                         type="text" 
-                                        value={formData.measurements.pants[`pantMeasurement${i}`]} 
-                                        onChange={e => updateMeasurement('pants', `pantMeasurement${i}`, e.target.value)} 
+                                        value={formData.measurements.pants[`m${i}`]} 
+                                        onChange={e => updateMeasurement('pants', `m${i}`, e.target.value)} 
                                     />
                                 </div>
                             ))}
@@ -252,13 +245,13 @@ MariMuthu
 
                         {/* Row 2: 6(a), 6(b) */}
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', marginBottom: '1rem' }}>
-                            {['6a', '6b'].map(i => (
+                            {[6, 10].map(i => (
                                 <div key={i} className="measurement-box">
-                                    <label>{i === '6a' ? '6(a)' : '6(b)'}</label>
+                                    <label>{i === 6 ? '6(a)' : '6(b)'}</label>
                                     <input 
                                         type="text" 
-                                        value={formData.measurements.pants[`pantMeasurement${i}`]} 
-                                        onChange={e => updateMeasurement('pants', `pantMeasurement${i}`, e.target.value)} 
+                                        value={formData.measurements.pants[`m${i}`]} 
+                                        onChange={e => updateMeasurement('pants', `m${i}`, e.target.value)} 
                                     />
                                 </div>
                             ))}
@@ -271,18 +264,18 @@ MariMuthu
                                     <label>{i}</label>
                                     <input 
                                         type="text" 
-                                        value={formData.measurements.pants[`pantMeasurement${i}`]} 
-                                        onChange={e => updateMeasurement('pants', `pantMeasurement${i}`, e.target.value)} 
+                                        value={formData.measurements.pants[`m${i}`]} 
+                                        onChange={e => updateMeasurement('pants', `m${i}`, e.target.value)} 
                                     />
                                 </div>
                             ))}
-                            {['9a', '9b'].map(i => (
+                            {[9, 11].map(i => (
                                 <div key={i} className="measurement-box">
-                                    <label>{i === '9a' ? '9(a)' : '9(b)'}</label>
+                                    <label>{i === 9 ? '9(a)' : '9(b)'}</label>
                                     <input 
                                         type="text" 
-                                        value={formData.measurements.pants[`pantMeasurement${i}`]} 
-                                        onChange={e => updateMeasurement('pants', `pantMeasurement${i}`, e.target.value)} 
+                                        value={formData.measurements.pants[`m${i}`]} 
+                                        onChange={e => updateMeasurement('pants', `m${i}`, e.target.value)} 
                                     />
                                 </div>
                             ))}

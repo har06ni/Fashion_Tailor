@@ -5,11 +5,10 @@ const orderSchema = new mongoose.Schema({
     customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: true },
     measurements: {
         pants: {
-            pantMeasurement1: String, pantMeasurement2: String, pantMeasurement3: String,
-            pantMeasurement4: String, pantMeasurement5: String,
-            pantMeasurement6a: String, pantMeasurement6b: String,
-            pantMeasurement7: String, pantMeasurement8: String,
-            pantMeasurement9a: String, pantMeasurement9b: String,
+            m1: String, m2: String, m3: String,
+            m4: String, m5: String, m6: String,
+            m7: String, m8: String, m9: String,
+            m10: String, m11: String,
             comments: String,
             images: [String]
         },

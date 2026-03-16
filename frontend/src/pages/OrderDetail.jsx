@@ -207,17 +207,17 @@ MariMuthu
                             {[1, 2, 3, 4, 5].map(i => (
                                 <div key={i} className="measurement-box">
                                     <label>{i}</label>
-                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`pantMeasurement${i}`] || '-'}</div>
+                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`m${i}`] || '-'}</div>
                                 </div>
                             ))}
                         </div>
 
                         {/* Row 2: 6(a), 6(b) */}
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', marginBottom: '1rem' }}>
-                            {['6a', '6b'].map(i => (
+                            {[6, 10].map(i => (
                                 <div key={i} className="measurement-box">
-                                    <label>{i === '6a' ? '6(a)' : '6(b)'}</label>
-                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`pantMeasurement${i}`] || '-'}</div>
+                                    <label>{i === 6 ? '6(a)' : '6(b)'}</label>
+                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`m${i}`] || '-'}</div>
                                 </div>
                             ))}
                         </div>
@@ -227,13 +227,13 @@ MariMuthu
                             {[7, 8].map(i => (
                                 <div key={i} className="measurement-box">
                                     <label>{i}</label>
-                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`pantMeasurement${i}`] || '-'}</div>
+                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`m${i}`] || '-'}</div>
                                 </div>
                             ))}
-                            {['9a', '9b'].map(i => (
+                            {[9, 11].map(i => (
                                 <div key={i} className="measurement-box">
-                                    <label>{i === '9a' ? '9(a)' : '9(b)'}</label>
-                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`pantMeasurement${i}`] || '-'}</div>
+                                    <label>{i === 9 ? '9(a)' : '9(b)'}</label>
+                                    <div style={{ padding: '0.5rem', fontWeight: 600 }}>{measurements.pants[`m${i}`] || '-'}</div>
                                 </div>
                             ))}
                         </div>
