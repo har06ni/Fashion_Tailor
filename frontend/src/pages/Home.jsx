@@ -16,7 +16,7 @@ const Home = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('/api/orders?status=Stitching');
+            const res = await axios.get('http://localhost:5000/api/orders?status=Stitching');
             setOrders(res.data);
         } catch (err) {
             console.error('Error fetching orders:', err);
@@ -40,7 +40,7 @@ MariMuthu
     const confirmFinish = async (customMessage) => {
         const { order } = modalConfig;
         try {
-            await axios.patch(`/api/orders/${order._id}/status`, { 
+            await axios.patch(`http://localhost:5000/api/orders/${order._id}/status`, { 
                 status: 'Ready to Deliver',
                 customSMS: customMessage 
             });
@@ -54,7 +54,7 @@ MariMuthu
     const skipFinishSMS = async () => {
         const { order } = modalConfig;
         try {
-            await axios.patch(`/api/orders/${order._id}/status`, { 
+            await axios.patch(`http://localhost:5000/api/orders/${order._id}/status`, { 
                 status: 'Ready to Deliver',
                 skipSMS: true
             });

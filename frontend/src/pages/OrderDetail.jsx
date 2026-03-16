@@ -15,7 +15,7 @@ const OrderDetail = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const res = await axios.get(`/api/orders/${id}`);
+                const res = await axios.get(`http://localhost:5000/api/orders/${id}`);
                 setOrder(res.data);
                 setLoading(false);
             } catch (err) {
@@ -85,17 +85,17 @@ MariMuthu
         try {
             const currentAction = modalConfig.action;
             if (currentAction === 'reminder') {
-                await axios.post('/api/orders/send-custom-sms', {
+                await axios.post('http://localhost:5000/api/orders/send-custom-sms', {
                     phone: order.customer.phone,
                     message: customMessage
                 });
             } else if (currentAction === 'finish') {
-                await axios.patch(`/api/orders/${id}/status`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${id}/status`, { 
                     status: 'Ready to Deliver',
                     customSMS: customMessage 
                 });
             } else if (currentAction === 'deliver') {
-                await axios.patch(`/api/orders/${id}/deliver`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${id}/deliver`, { 
                     balancePaidMethod: modalConfig.paymentMethod,
                     customSMS: customMessage
                 });
@@ -112,12 +112,12 @@ MariMuthu
         try {
             const currentAction = modalConfig.action;
             if (currentAction === 'finish') {
-                await axios.patch(`/api/orders/${id}/status`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${id}/status`, { 
                     status: 'Ready to Deliver',
                     skipSMS: true
                 });
             } else if (currentAction === 'deliver') {
-                await axios.patch(`/api/orders/${id}/deliver`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${id}/deliver`, { 
                     balancePaidMethod: modalConfig.paymentMethod,
                     skipSMS: true
                 });

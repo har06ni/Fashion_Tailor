@@ -20,8 +20,4 @@ app.get('/', (req, res) => res.send('Tailor Shop API Running'));
 app.use('/api/customers', require('./routes/customers'));
 app.use('/api/orders', require('./routes/orders'));
 
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-}
-
-module.exports = app;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

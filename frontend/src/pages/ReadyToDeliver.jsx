@@ -15,7 +15,7 @@ const ReadyToDeliver = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('/api/orders?status=Ready to Deliver');
+            const res = await axios.get('http://localhost:5000/api/orders?status=Ready to Deliver');
             setOrders(res.data);
         } catch (err) {
             console.error('Error fetching orders:', err);
@@ -69,12 +69,12 @@ MariMuthu
         try {
             if (action === 'reminder') {
                 // Reminder doesn't update status, just sends SMS
-                await axios.post('/api/orders/send-custom-sms', {
+                await axios.post('http://localhost:5000/api/orders/send-custom-sms', {
                     phone: order.customer.phone,
                     message: customMessage
                 });
             } else if (action === 'deliver') {
-                await axios.patch(`/api/orders/${order._id}/deliver`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${order._id}/deliver`, { 
                     balancePaidMethod: order.paymentMethod,
                     customSMS: customMessage
                 });
@@ -90,7 +90,7 @@ MariMuthu
         const { order, action } = modalConfig;
         try {
             if (action === 'deliver') {
-                await axios.patch(`/api/orders/${order._id}/deliver`, { 
+                await axios.patch(`http://localhost:5000/api/orders/${order._id}/deliver`, { 
                     balancePaidMethod: order.paymentMethod,
                     skipSMS: true
                 });

@@ -23,7 +23,7 @@ const AddCustomer = () => {
     const checkExistingCustomer = async (phone) => {
         if (phone.length === 10) {
             try {
-                const res = await axios.get(`/api/customers?phone=${phone}`);
+                const res = await axios.get(`http://localhost:5000/api/customers?phone=${phone}`);
                 if (res.data.length > 0) {
                     const cust = res.data[0];
                     setFormData(prev => ({
@@ -69,7 +69,7 @@ MariMuthu
 
     const confirmOrder = async (customMessage) => {
         try {
-            await axios.post('/api/orders', {
+            await axios.post('http://localhost:5000/api/orders', {
                 ...formData,
                 customSMS: customMessage
             });
@@ -83,7 +83,7 @@ MariMuthu
 
     const skipOrderSMS = async () => {
         try {
-            await axios.post('/api/orders', {
+            await axios.post('http://localhost:5000/api/orders', {
                 ...formData,
                 skipSMS: true
             });

@@ -3,7 +3,6 @@ const router = express.Router();
 const Customer = require('../models/Customer');
 const Order = require('../models/Order');
 const { sendSMS } = require('../services/smsService');
-const { uploadImage } = require('../services/cloudinaryService');
 
 // Create Order (which also creates/updates Customer)
 router.post('/', async (req, res) => {
@@ -15,24 +14,6 @@ router.post('/', async (req, res) => {
             deliveryDate,
             payment
         } = req.body;
-
-        // Process Images (Upload to Cloudinary)
-        const processImages = async (section) => {
-            if (measurements[section] && measurements[section].images) {
-                const uploadedUrls = await Promise.all(
-                    measurements[section].images.map(async (img) => {
-                        if (img.startsWith('data:image')) {
-                            return await uploadImage(img);
-                        }
-                        return img; // Already a URL or other format
-                    })
-                );
-                measurements[section].images = uploadedUrls;
-            }
-        };
-
-        await processImages('pants');
-        await processImages('shirts');
 
         // Handle Customer
         const cleanedPhone = customerData.phone.trim().replace(/\s/g, '');

@@ -13,7 +13,7 @@ const Delivered = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('/api/orders?status=Delivered');
+            const res = await axios.get('http://localhost:5000/api/orders?status=Delivered');
             setOrders(res.data);
         } catch (err) {
             console.error('Error fetching orders:', err);
